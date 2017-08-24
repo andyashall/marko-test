@@ -1,15 +1,16 @@
 body {
-  font-family: sans-serif;
-  background: #eee;
+  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif; 
+  -webkit-font-smoothing: antialiased;
+  background: #f6f6f6;
   padding: 0;
   margin: 0;
   color: #333;
 }
 
 a {
-  color: #26a;
+  color: #0070c9;
   text-decoration: none;
-  font-weight: 500;
+  font-size: .8rem;
 }
 
 a:hover {
@@ -17,15 +18,30 @@ a:hover {
 }
 
 header {
-  padding: 2em;
-  border-bottom: 1px solid #ccc;
+  position: relative;
+  height: 3rem;
+  border-bottom: 1px solid rgba(0,0,0,.06);
   background: #fff;
   text-align: center;
 }
 
+.title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+nav {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 nav.menu a {
   display: inline-block;
-  padding: 0.5em 1em;
+  margin-right: 1rem;
 }
 
 img.logo {
@@ -37,13 +53,12 @@ img.logo {
 h1 {
   font-size: 2.5em;
   font-weight: 300;
-  margin: 0;
 }
 
 h2 {
   font-weight: 600;
   margin-top: 1.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.5em;
 }
 
 h3 {
@@ -75,4 +90,10 @@ code {
 pre code {
   display: block;
   color: #396;
+}
+
+@media screen and (max-width: 700px) {
+  .title {
+    display: none;
+  }
 }
