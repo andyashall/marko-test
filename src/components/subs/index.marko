@@ -3,7 +3,6 @@ style {
   .subs {
     position: relative;
     margin-top: 3rem;
-    color: #888;
     font-size: .8rem;
     padding: 5px 0;
     border-bottom: 1px solid rgba(0,0,0,.03);
@@ -11,10 +10,18 @@ style {
   .subsInner {
     width: 700px;
     margin: auto;
+    color: #888;
+  }
+  .subsInner a {
+    color: inherit;
   }
   .subsInner div {
     display: inline-block;
     padding: 3px 6px;
+    border-radius: 3px;
+  }
+  .subsInner div:hover {
+    background-color: rgba(0,0,0,.05);
   }
 }
 
