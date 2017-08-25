@@ -1,0 +1,75 @@
+import axios from 'axios'
+
+class {
+  onCreate() {
+    this.state = {posts: [{data: {author:'Loading...',content:'Loading...'}}]}
+  }
+  onMount() {
+    let sub = window.location.pathname.replace('/sub/', '')
+    if (sub == '/') {
+      sub = 'all'
+    }
+    console.log(sub)
+    axios.get('https://www.reddit.com/r/' + sub + '.json')
+    .then((res)=>{
+        let posts = res.data.data.children
+        console.log(posts)
+        this.state.posts = posts
+    })
+    .catch((err)=>{console.log(err)})
+  }
+}
+
+style {
+  .cont {
+    margin-top: 2.5rem;
+    width: 700px;
+    margin: auto;
+  }
+  .post {
+    background-color: #fff;
+    margin: .5rem 0;
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 3px;
+    padding: 1rem;
+  }
+  .post a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .post a:visited {
+    color: #888;
+  }
+  .postButtons div {
+    display: inline-block;
+    margin-right: 1rem;
+    color: #888;
+    margin-top: 1rem;
+    font-size: .8rem;
+  }
+  .postTop {
+    margin-bottom: 1rem;
+    color: #888;
+  }
+  .postTop div {
+    display: inline-block;
+    font-size: .8rem;
+  }
+  .user {
+    color: #0070c9;
+    margin-left: 5px;
+  }
+}
+
+div.cont
+  for(p in state.posts)
+    div.post key="posts[]"
+      div.postTop
+        div -- ${p.data.score} points by 
+        div.user -- ${p.data.author}
+      a href=`${p.data.url}`
+        div.postTitle -- ${p.data.title}
+      div.postButtons
+        a href=`https://reddit.com${p.data.permalink}`
+          div -- ${p.data.num_comments} Comments
+        div -- Share

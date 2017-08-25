@@ -7,7 +7,7 @@ body {
   color: #333;
 }
 
-a {
+header a {
   color: #0070c9;
   text-decoration: none;
   font-size: .8rem;
@@ -18,7 +18,10 @@ a:hover {
 }
 
 header {
-  position: relative;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  width: 100%;
   height: 3rem;
   border-bottom: 1px solid rgba(0,0,0,.06);
   background: #fff;
@@ -73,9 +76,7 @@ p {
 }
 
 .content {
-  padding: 1em 2em;
-  max-width: 30em;
-  margin: auto;
+
 }
 
 code {
